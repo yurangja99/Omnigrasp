@@ -58,10 +58,11 @@ if __name__ == "__main__":
     # motion_file = "data/amass_x/singles/interhand_test.pkl"
     # motion_file = "data/amass_x/singles/grab_obj_test.pkl"
     # motion_file = "data/amass_x/amass_x_dex/test.pkl"
-    motion_file = "data/amass_x/flip/singles/ACCAD_Female1Gestures_c3d_D3_-_Conversation_Gestures_stageii_flip.pkl"
+    # motion_file = "data/amass_x/flip/singles/ACCAD_Female1Gestures_c3d_D3_-_Conversation_Gestures_stageii_flip.pkl"
     # motion_file = "data/amass_x/amass_x_dex/amass_clean_dex_v1.pkl"
     # motion_file = "data/amass_x/singles/Eyes_Japan_Dataset_shiono_gesture_etc-10-snip_nail-shiono_stageii.pkl"
     # motion_file = "/hdd/zen/dev/meta/PHC_X/data/amass_x/singles/Subject_18_F_2_stageii_flipped.npy"
+    motion_file = "sample_data/grab_sample.pkl"
     curr_start, num_motions, motion_id, motion_acc, time_step, dt, paused = 0, 1, 0, set(), 0, 1/30, False
     motion_lib_cfg = EasyDict({
                     "motion_file": motion_file,
@@ -99,7 +100,7 @@ if __name__ == "__main__":
     
     gender_beta = np.zeros((21))
     smpl_robot.load_from_skeleton(betas=torch.from_numpy(gender_beta[None, 1:]), gender=gender_beta[0:1], objs_info=None)
-    test_good = f"/tmp/smpl/test_good.xml"
+    test_good = f"test_good.xml"
     smpl_robot.write_xml(test_good)
     smpl_robot.write_xml("test.xml")
     sk_tree = SkeletonTree.from_mjcf(test_good)
